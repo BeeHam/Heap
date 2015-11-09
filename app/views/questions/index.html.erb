@@ -1,1 +1,7 @@
 <h1>Willkommen! Bienvenue! Howdy!</h1>
+
+<ul>
+  <% @questions.each do |question| %>
+    <li><%= question.question_content %>, by <%= question.question_author %></li>
+  <% end %>
+</ul>
