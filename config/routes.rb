@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root "questions#index"
 
+  get 'tags/:tag', to: 'tags#show', as: :tag
+
   resources :questions do
     resources :answers
   end

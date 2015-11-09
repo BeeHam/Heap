@@ -2,6 +2,11 @@
 
 <ul>
   <% @questions.each do |question| %>
-    <li><%= question.question_content %>, by <%= question.question_author %></li>
+    <li><%= link_to question.question_content, question_path(question) %>, by <%= question.question_author %>
+      <ul>
+        <li>Tags: <%= raw question.tag_list.map { |tag| link_to tag, tag_path(tag) }.join(', ') %></li>
+      </ul>
+    </li>
   <% end %>
 </ul>
+<%= link_to "Ask", new_question_path %>
