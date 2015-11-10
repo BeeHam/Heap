@@ -22,10 +22,20 @@ class AnswersController < ApplicationController
   def update
     @question = Question.find(params[:question_id])
     @answer = @question.answers.find(params[:id])
-    if @answer.update(answer_params)
+    if params[:vote] == "up"
+      @answer.vote += 1
+      @answer.save
+      redirect_to question_path(@question)
+    elsif params[:vote] == "down"
+      @answer.vote -= 1
+      @answer.save
       redirect_to question_path(@question)
     else
-      render :edit
+      if @answer.update(answer_params)
+        redirect_to question_path(@question)
+      else
+        render :edit
+      end
     end
   end
 
