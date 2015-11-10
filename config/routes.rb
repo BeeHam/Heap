@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-  root "questions#index"
+  root "sections#index"
 
   get 'tags/:tag', to: 'tags#show', as: :tag
 
-  resources :questions do
+  resources :sections, only: [:index, :show] do
+    resources :questions, only: [:new, :create, :destroy, :update, :edit]
+  end
+
+  resources :questions, only: [:index, :show] do
     resources :answers
   end
   # The priority is based upon order of creation: first created -> highest priority.

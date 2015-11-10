@@ -1,0 +1,15 @@
+<h1><%= @section.section_name %></h1>
+
+<ul>
+  <% @section.questions.each do |question| %>
+  <li><%= link_to question.question_title, question_path(question) %> - by <%= question.question_author %>
+    <%= link_to "Edit", edit_section_question_path(@section, question) %> |
+    <%= link_to "Delete", section_question_path(@section, question), method: "delete" %>
+    <ul>
+      <li>Tags: <%= raw question.tag_list.map { |tag| link_to tag, tag_path(tag) }.join(', ') %></li>
+    </ul>
+  </li>
+  <% end %>
+</ul>
+
+<%= link_to "Ask", new_section_question_path(@section) %>

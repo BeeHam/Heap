@@ -8,35 +8,40 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = Question.new
+    @section = Section.find(params[:section_id])
+    @question = @section.questions.new
   end
 
   def create
-    @question = Question.new(question_params)
+    @section = Section.find(params[:section_id])
+    @question = @section.questions.new(question_params)
     if @question.save
-      redirect_to questions_path
+      redirect_to section_path(@section)
     else
       render :new
     end
   end
 
   def edit
-    @question = Question.find(params[:id])
+    @section = Section.find(params[:section_id])
+    @question = @section.questions.find(params[:id])
   end
 
   def update
-    @question = Question.find(params[:id])
+    @section = Section.find(params[:section_id])
+    @question = @section.questions.find(params[:id])
     if @question.update(question_params)
-      redirect_to question_path(@question)
+      redirect_to section_path(@section)
     else
       render :edit
     end
   end
 
   def destroy
+    @section = Section.find(params[:section_id])
     @question = Question.find(params[:id])
     @question.destroy
-    redirect_to questions_path
+    redirect_to section_path(@section)
   end
 
   private

@@ -1,0 +1,7 @@
+<h1>H E A P</h1>
+
+<ul>
+  <% @sections.each do |section| %>
+    <li><%= link_to section.section_name, section_path(section) %></li>
+  <% end %>
+</ul>

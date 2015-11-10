@@ -1,8 +1,6 @@
 <h1><%= @question.question_title %></h1>
 <p>
   <%= @question.question_content %>
-<%= link_to "Edit", edit_question_path(@question) %> |
-<%= link_to "Delete", question_path(@question), method: "delete" %>
 </p>
 
 <p>
@@ -26,5 +24,5 @@
   <% end %>
 </ul>
 <p>
-  ❤
+   ★
 </p>
