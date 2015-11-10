@@ -11,17 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109192408) do
+ActiveRecord::Schema.define(version: 20151110000740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
-    t.string  "answer_content"
-    t.string  "answer_author"
-    t.integer "question_id"
-    t.integer "vote"
-    t.boolean "star",           default: false
+    t.string   "answer_content"
+    t.string   "answer_author"
+    t.integer  "question_id"
+    t.integer  "vote"
+    t.boolean  "star",           default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -29,6 +31,7 @@ ActiveRecord::Schema.define(version: 20151109192408) do
     t.string   "question_author"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "question_title"
   end
 
   create_table "taggings", force: :cascade do |t|

@@ -1,6 +1,16 @@
-<h1><%= @question.question_content %></h1>
+<h1><%= @question.question_title %></h1>
 
 <p>
 <%= link_to "Edit", edit_question_path(@question) %> |
 <%= link_to "Home",root_path %>
 </p>
+<hr>
+
+<h2>Answers</h2>
+<%= link_to "Answer", new_question_answer_path(@question) %>
+
+<ul>
+  <% @question.answers.each do |answer| %>
+    <li><%= answer.answer_content %>, by <%= answer.answer_author %>- <%= distance_of_time_in_words(answer.created_at, Time.now) %> ago</li>
+  <% end %>
+</ul>

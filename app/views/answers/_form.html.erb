@@ -1,0 +1,7 @@
+<%= form_for [@question, @answer] do |f| %>
+  <%= f.label :answer_content %>
+  <%= f.text_field :answer_content %>
+  <%= f.label :answer_author %>
+  <%= f.text_field :answer_author %>
+  <%= f.submit "Answer" %>
+<% end %>

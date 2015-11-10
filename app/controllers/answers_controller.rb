@@ -9,7 +9,6 @@ class AnswersController < ApplicationController
     @answer = @question.answers.new(answer_params)
     if @answer.save
       redirect_to question_path(@question)
-      end
     else
       render :new
     end
@@ -35,7 +34,6 @@ class AnswersController < ApplicationController
     @answer = @question.answers.find(params[:id])
     @answer.destroy
       redirect_to question_path(@question)
-    end
   end
 
   private
