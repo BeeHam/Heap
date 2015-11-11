@@ -3,6 +3,10 @@
   <%= @question.question_content %>
 </p>
 
+<ul>
+  <li>Tags: <%= raw @question.tag_list.map { |tag| link_to tag, tag_path(tag) }.join(', ') %></li>
+</ul>
+
 <p>
 <%= link_to "Home",root_path %>
 </p>
