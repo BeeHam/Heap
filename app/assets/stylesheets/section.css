@@ -1,0 +1,11 @@
+.sections {
+  background-color: lightgrey;
+  text-align: center;
+  border: 1px solid black;
+  width: 60%;
+  margin: 1em auto;
+}
+
+.sections:hover {
+  background-color: white;
+}
