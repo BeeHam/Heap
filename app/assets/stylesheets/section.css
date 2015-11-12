@@ -1,11 +1,41 @@
-.sections {
-  background-color: lightgrey;
+#header {
   text-align: center;
-  border: 1px solid black;
-  width: 60%;
-  margin: 1em auto;
+  font-size: 10em;
+  color: black;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: white;
+  background: no-repeat center/cover url("https://scontent-lga3-1.xx.fbcdn.net/hphotos-xta1/v/t1.0-9/11223895_838822329576521_2091423848771072127_n.jpg?oh=854d808e1103531e28ab5a880f154f91&oe=56AC295B");
+  margin: 0 auto;
+  padding: 5rem 0;
+
 }
 
-.sections:hover {
-  background-color: white;
+.sections {
+  text-align: center;
+  border-radius: 2px;
+  width: 60%;
+  margin: 1em auto;
+  padding: 5em;
+
+}
+
+#Ruby {
+  background-color: pink;
+}
+
+#Rails {
+  background-color: lightblue;
+}
+
+#HTML {
+  background-color: lightgrey;
+}
+
+#CSS {
+  background-color: yellow;
+}
+
+p #CSS:hover  {
+  text-decoration: none;
 }

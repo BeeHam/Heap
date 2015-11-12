@@ -1,10 +1,11 @@
-<h1>H E A P</h1>
+<h1 id="header">H E A P</h1>
 
-
-<% @sections.each do |section| %>
-    <%= link_to section_path(section) do %>
-      <div class="sections">
-        <p><%= section.section_name %></p>
-      </div>
-    <% end %>
-<% end %>
+<div class="container">
+  <% @sections.each do |section| %>
+      <%= link_to section_path(section) do %>
+        <div class="sections" id="<%= section.section_name %>">
+          <p ><%= section.section_name %></p>
+        </div>
+      <% end %>
+  <% end %>
+</div>
