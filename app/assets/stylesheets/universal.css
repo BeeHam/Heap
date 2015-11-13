@@ -1,6 +1,17 @@
+#nonavpad {
+  margin-bottom: 0;
 
+}
 
 .content {
   margin: 0;
   /*background-color: lightgrey;*/
+}
+
+footer {
+  text-align: center;
+  margin: 6em auto 0;
+  width: 50%;
+  padding-top: 2em;
+  border-top: 1px solid lightgrey;
 }

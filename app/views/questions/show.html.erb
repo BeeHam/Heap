@@ -1,35 +1,45 @@
 
 <div class="container">
-  <h1><%= @question.question_title %></h1>
-  <p>
-    <%= @question.question_content %>
-  </p>
+  <div class="nest">
+    <h1><%= @question.question_title %></h1>
+    <p>
+      <%= @question.question_content %>
+    </p>
 
-  <ul>
-    <li>Tags: <%= raw @question.tag_list.map { |tag| link_to tag, tag_path(tag) }.join(', ') %></li>
-  </ul>
+    <ul>
+      <li>Tags: <%= raw @question.tag_list.map { |tag| link_to tag, tag_path(tag) }.join(', ') %></li>
+    </ul>
 
-  <p>
-  <%= link_to "Home",root_path %>
-  </p>
-  <hr>
+    <hr>
 
-  <h2>Answers</h2>
-  <%= link_to "Answer", new_question_answer_path(@question) %>
+    <%= link_to "Answer", new_question_answer_path(@question), class: "btn btn-primary" %>
+    <h2>Answers</h2>
 
-  <ul>
-    <% @question.answers.order(vote: :desc).each do |answer| %>
-      <li>
-        <%= link_to "▲", question_answer_path(@question, answer, vote: "up"), method: "patch" %>
-        <%= answer.vote %>
-        <%= link_to "▼", question_answer_path(@question, answer, vote: "down"), method: "patch" %>
-        <%= answer.answer_content %>, by <%= answer.answer_author %> - <%= distance_of_time_in_words(answer.created_at, Time.now) %> ago
-        <%= link_to "Edit", edit_question_answer_path(@question, answer) %> |
-        <%= link_to "Delete", question_answer_path(@question, answer), method: "delete" %>
-      </li>
-    <% end %>
-  </ul>
-  <p>
-     ★
-  </p>
+
+      <% @question.answers.order(vote: :desc).each do |answer| %>
+        <div class="answer-block">
+          <div class="answer-content row">
+            <div class="col-md-2">
+              <%= link_to "▲", question_answer_path(@question, answer, vote: "up"), method: "patch" %>
+              <%= answer.vote %>
+              <%= link_to "▼", question_answer_path(@question, answer, vote: "down"), method: "patch" %>
+            </div>
+            <div class="col-md-10">
+              <%= answer.answer_content %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 text-left">
+              <%= answer.answer_author %> - <%= distance_of_time_in_words(answer.created_at, Time.now) %> ago
+            </div>
+            <div class="col-md-6 text-right">
+              <%= link_to "Edit", edit_question_answer_path(@question, answer) %> |
+              <%= link_to "Delete", question_answer_path(@question, answer), method: "delete" %>
+            </div>
+          </div>
+        </div>
+
+      <% end %>
+
+  </div>
 </div>

@@ -7,9 +7,38 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="content">
-  <%= yield %>
-</div>
+  <div class="content">
+    <nav class="navbar navbar-default" id="nonavpad">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to (raw '<span class="glyphicon glyphicon-home"></span>'),  root_path, class: "navbar-brand" %>
+          <!-- <a class="navbar-brand" href="#"> <span class="glyphicon glyphicon-home"></span> </a> -->
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <!-- <li><a href="#">Link <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Link</a></li> -->
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Admin</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <%= yield %>
+
+    <footer>BHam 2015</footer>
+
+  </div>
 
 </body>
 </html>

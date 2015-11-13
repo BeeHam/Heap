@@ -19,6 +19,6 @@
 # Question.create(question_content: "When a prang seems inevitable, endeavor to strike the softest, cheapest object in the vicinity, as slowly and gently as possible.", question_title: "How a test question?", question_author: "Jane Doe")
 
 Section.create(section_name: "Ruby")
-Section.create(section_name: "Rails")
+Section.create(section_name: "JS")
 Section.create(section_name: "CSS")
 Section.create(section_name: "HTML")

@@ -1,7 +1,8 @@
-<h1>Questions tagged with </h1>
-
-<ul>
-  <% @questions.each do |question| %>
-    <li><%= link_to question.question_title, question_path(question) %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <h1>Questions tagged with <%= @tag %></h1>
+  <ul>
+    <% @questions.each do |question| %>
+      <li><%= link_to question.question_title, question_path(question) %></li>
+    <% end %>
+  </ul>
+</div>
