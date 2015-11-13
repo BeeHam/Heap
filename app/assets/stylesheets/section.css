@@ -13,29 +13,78 @@
 
 .sections {
   text-align: center;
-  border-radius: 2px;
+  border-radius: 10px;
   width: 60%;
   margin: 1em auto;
-  padding: 5em;
+  padding: 1em;
 
 }
-
+/*Ruby block styling*/
 #Ruby {
   background-color: pink;
+  color: white;
 }
 
+#Ruby a {
+  color: white;
+  font-size: 15rem;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+#Ruby a:hover  {
+  text-decoration: none;
+}
+
+/*Rails block styling*/
 #Rails {
   background-color: lightblue;
 }
 
+#Rails a {
+  color: white;
+  font-size: 15rem;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+#Rails a:hover  {
+  text-decoration: none;
+}
+/*HTML block styling*/
 #HTML {
   background-color: lightgrey;
 }
 
-#CSS {
-  background-color: yellow;
+#HTML a {
+  color: white;
+  font-size: 15rem;
+  text-transform: uppercase;
+  font-weight: bolder;
 }
 
-p #CSS:hover  {
+#HTML a:hover  {
+  text-decoration: none;
+}
+/*CSS block styling*/
+#CSS {
+  background-color: #598ad0;
+  border: 10px solid #1259bd;
+  text-decoration: none;
+}
+
+#CSS a {
+  color: white;
+  text-shadow:
+   -1px -1px 0 #1259bd,  
+    1px -1px 0 #1259bd,
+    -1px 1px 0 #1259bd,
+     1px 1px 0 #1259bd;
+  font-size: 15rem;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+ #CSS a:hover  {
   text-decoration: none;
 }

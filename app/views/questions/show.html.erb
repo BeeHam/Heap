@@ -1,32 +1,35 @@
-<h1><%= @question.question_title %></h1>
-<p>
-  <%= @question.question_content %>
-</p>
 
-<ul>
-  <li>Tags: <%= raw @question.tag_list.map { |tag| link_to tag, tag_path(tag) }.join(', ') %></li>
-</ul>
+<div class="container">
+  <h1><%= @question.question_title %></h1>
+  <p>
+    <%= @question.question_content %>
+  </p>
 
-<p>
-<%= link_to "Home",root_path %>
-</p>
-<hr>
+  <ul>
+    <li>Tags: <%= raw @question.tag_list.map { |tag| link_to tag, tag_path(tag) }.join(', ') %></li>
+  </ul>
 
-<h2>Answers</h2>
-<%= link_to "Answer", new_question_answer_path(@question) %>
+  <p>
+  <%= link_to "Home",root_path %>
+  </p>
+  <hr>
 
-<ul>
-  <% @question.answers.order(vote: :desc).each do |answer| %>
-    <li>
-      <%= link_to "▲", question_answer_path(@question, answer, vote: "up"), method: "patch" %>
-      <%= answer.vote %>
-      <%= link_to "▼", question_answer_path(@question, answer, vote: "down"), method: "patch" %>
-      <%= answer.answer_content %>, by <%= answer.answer_author %> - <%= distance_of_time_in_words(answer.created_at, Time.now) %> ago
-      <%= link_to "Edit", edit_question_answer_path(@question, answer) %> |
-      <%= link_to "Delete", question_answer_path(@question, answer), method: "delete" %>
-    </li>
-  <% end %>
-</ul>
-<p>
-   ★
-</p>
+  <h2>Answers</h2>
+  <%= link_to "Answer", new_question_answer_path(@question) %>
+
+  <ul>
+    <% @question.answers.order(vote: :desc).each do |answer| %>
+      <li>
+        <%= link_to "▲", question_answer_path(@question, answer, vote: "up"), method: "patch" %>
+        <%= answer.vote %>
+        <%= link_to "▼", question_answer_path(@question, answer, vote: "down"), method: "patch" %>
+        <%= answer.answer_content %>, by <%= answer.answer_author %> - <%= distance_of_time_in_words(answer.created_at, Time.now) %> ago
+        <%= link_to "Edit", edit_question_answer_path(@question, answer) %> |
+        <%= link_to "Delete", question_answer_path(@question, answer), method: "delete" %>
+      </li>
+    <% end %>
+  </ul>
+  <p>
+     ★
+  </p>
+</div>

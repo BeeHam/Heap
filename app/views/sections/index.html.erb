@@ -2,10 +2,8 @@
 
 <div class="container">
   <% @sections.each do |section| %>
-      <%= link_to section_path(section) do %>
-        <div class="sections" id="<%= section.section_name %>">
-          <p ><%= section.section_name %></p>
-        </div>
-      <% end %>
+    <div class="sections" id="<%= section.section_name %>">
+      <%= link_to section.section_name, section_path(section) %>
+    </div>
   <% end %>
 </div>

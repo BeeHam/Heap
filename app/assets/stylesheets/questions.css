@@ -1,0 +1,26 @@
+.question-header {
+  text-align: center;
+}
+
+.question-content {
+  border-top: 1px solid lightgrey;
+  /*border-bottom: 1px solid black;*/
+  padding: 2em 0 0;
+}
+
+.question-content li {
+  list-style: none;
+}
+
+.question-title {
+  margin-bottom: 2em;
+}
+
+.question-title a {
+  font-size: 3rem;
+}
+
+.ask {
+  padding-top: 2em;
+  border-top: 1px solid lightgrey;
+}
