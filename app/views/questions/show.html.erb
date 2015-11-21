@@ -1,38 +1,38 @@
 
 <div class="container">
   <div class="nest">
-    <h1><%= @question.question_title %></h1>
-    <p>
-      <%= @question.question_content %>
-    </p>
+    <h2><%= @question.question_title %></h2>
+    <span>by <strong><%= @question.question_author %></strong></span>
 
-    <ul>
-      <li>Tags: <%= raw @question.tag_list.map { |tag| link_to tag, tag_path(tag) }.join(', ') %></li>
-    </ul>
+    <p><%= @question.question_content %></p>
+
+    <p class="tags"><%= raw @question.tag_list.map { |tag| link_to tag, tag_path(tag) }.join(' ') %></p>
 
     <hr>
 
-    <%= link_to "Answer", new_question_answer_path(@question), class: "btn btn-primary" %>
+    <%= link_to "Answer", new_question_answer_path(@question), class: "btn btn-success" %>
     <h2>Answers</h2>
 
 
       <% @question.answers.order(vote: :desc).each do |answer| %>
         <div class="answer-block">
           <div class="answer-content row">
-            <div class="col-md-2">
-              <%= link_to "▲", question_answer_path(@question, answer, vote: "up"), method: "patch" %>
-              <%= answer.vote %>
-              <%= link_to "▼", question_answer_path(@question, answer, vote: "down"), method: "patch" %>
+            <div class="col-md-2 text-center">
+              <%= link_to (raw '<span class="glyphicon glyphicon-chevron-up"></span>'), question_answer_path(@question, answer, vote: "up"), method: "patch" %>
+
+              <span class="text-danger"><strong><%= answer.vote %></strong></span>
+
+              <%= link_to (raw '<span class="glyphicon glyphicon-chevron-down"></span>'), question_answer_path(@question, answer, vote: "down"), method: "patch" %>
             </div>
             <div class="col-md-10">
               <%= answer.answer_content %>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-6 text-left">
-              <%= answer.answer_author %> - <%= distance_of_time_in_words(answer.created_at, Time.now) %> ago
+            <div class="col-md-3 col-md-offset-2">
+              <strong><%= answer.answer_author %></strong> - <%= distance_of_time_in_words(answer.created_at, Time.now) %> ago
             </div>
-            <div class="col-md-6 text-right">
+            <div class="col-md-7 text-right">
               <%= link_to "Edit", edit_question_answer_path(@question, answer) %> |
               <%= link_to "Delete", question_answer_path(@question, answer), method: "delete" %>
             </div>

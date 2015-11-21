@@ -1,3 +1,4 @@
+
 #nonavpad {
   margin-bottom: 0;
 
@@ -14,4 +15,21 @@ footer {
   width: 50%;
   padding-top: 2em;
   border-top: 1px solid lightgrey;
+}
+
+.tags a {
+  border: 1px solid #2196F3;
+  border-radius: 4px;
+  padding: 0.2rem;
+}
+
+.tags a:hover {
+  text-decoration: none;
+  color: white;
+  background-color: #2196F3;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #2196F3;
 }
