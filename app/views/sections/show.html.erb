@@ -1,32 +1,35 @@
-<h1 class="question-header"><%= @section.section_name %></h1>
 
 <div class="container">
+  <h1 class="question-header"><%= @section.section_name %></h1>
 
-    <% @section.questions.each do |question| %>
-      <div class="question-content">
-        <div class="question-title row">
-          <div class="col-md-2">
-            <h5 class="text-success"><span class="label label-success"><%= question.answers.length %></span> answers</h5>
-          </div>
-          <div class="col-md-10">
-            <%= link_to question.question_title, question_path(question) %> - by <strong><%= question.question_author %></strong>
-          </div>
+  <div class="row">
+
+      <div class="ask col-xs-6 col-xs-offset-3">
+        <%= link_to "Ask", new_section_question_path(@section), class: "btn btn-primary btn-block btn-lg" %>
+      </div>
+
+  </div>
+
+  <% @section.questions.each do |question| %>
+    <div class="question-content">
+      <div class="question-title row">
+        <div class="col-md-2">
+          <h5 class="text-success"><span class="label label-success"><%= question.answers.length %></span> answers</h5>
         </div>
-        <div class="row">
-          <div class="col-md-3 col-md-offset-2">
-            <p class="tags"><%= raw question.tag_list.map { |tag| link_to tag, tag_path(tag) }.join(' ') %></p>
-          </div>
-          <div class="edit-delete col-md-7 text-right">
-            <%= link_to "Edit", edit_section_question_path(@section, question) %> |
-            <%= link_to "Delete", section_question_path(@section, question), method: "delete" %>
-          </div>
+        <div class="col-md-10">
+          <%= link_to question.question_title, question_path(question) %> - by <strong><%= question.question_author %></strong>
         </div>
       </div>
-    <% end %>
-
-  <div class="ask">
-    <div class="col-xs-6 col-xs-offset-3">
-      <%= link_to "Ask", new_section_question_path(@section), class: "btn btn-primary btn-block btn-lg" %>
+      <div class="row">
+        <div class="col-md-3 col-md-offset-2">
+          <p class="tags"><%= raw question.tag_list.map { |tag| link_to tag, tag_path(tag) }.join(' ') %></p>
+        </div>
+        <div class="edit-delete col-md-7 text-right">
+          <%= link_to "Edit", edit_section_question_path(@section, question) %> |
+          <%= link_to "Delete", section_question_path(@section, question), method: "delete" %>
+        </div>
+      </div>
     </div>
-  </div>
+  <% end %>
+
 </div>
