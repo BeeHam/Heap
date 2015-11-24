@@ -9,8 +9,11 @@
     <p class="tags"><%= raw @question.tag_list.map { |tag| link_to tag, tag_path(tag) }.join(' ') %></p>
 
     <hr>
-
-    <%= link_to "Answer", new_question_answer_path(@question), class: "btn btn-success" %>
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <%= link_to "Answer", new_question_answer_path(@question), class: "btn btn-success btn-block btn-lg" %>
+      </div>
+    </div>
     <h2>Answers</h2>
 
 
