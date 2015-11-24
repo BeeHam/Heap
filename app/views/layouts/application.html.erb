@@ -23,18 +23,37 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
+            <% if user_signed_in? %>
+
+              <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+              <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+            <% end %>
             <!-- <li><a href="#">Link <span class="sr-only">(current)</span></a></li>
             <li><a href="#">Link</a></li> -->
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Admin</a></li>
+            <% if user_signed_in? %>
+              <li><a>Logged in as <strong><%= current_user.email %></strong></a></li>
+            <% else %>
+              <li><%= link_to "Admin", new_user_session_path %></li>
+            <% end %>
           </ul>
         </div>
       </div>
     </nav>
 
-
     <%= yield %>
+    <% if notice %>
+      <div class="alert alert-success col-xs-6 col-xs-offset-3">
+        <p class="notice text-center"><%= notice %></p>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div class="alert alert-warning col-xs-6 col-xs-offset-3">
+        <p class="alert text-center"><%= alert %></p>
+      </div>
+    <% end %>
+
 
     <footer>BHam 2015</footer>
 

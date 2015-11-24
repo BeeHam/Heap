@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root "sections#index"
 
   get 'tags/:tag', to: 'tags#show', as: :tag
