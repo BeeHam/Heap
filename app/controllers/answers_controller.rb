@@ -30,6 +30,10 @@ class AnswersController < ApplicationController
       @answer.vote -= 1
       @answer.save
       redirect_to question_path(@question)
+    elsif params[:star] == "true"
+      @answer.star = true
+      @answer.save
+      redirect_to question_path(@question)
     else
       if @answer.update(answer_params)
         redirect_to question_path(@question)

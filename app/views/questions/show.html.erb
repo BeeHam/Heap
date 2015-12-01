@@ -4,7 +4,7 @@
     <h2><%= @question.question_title %></h2>
     <span>by <strong><%= @question.question_author %></strong></span>
 
-    <p><%= @question.question_content %></p>
+    <p><%= simple_format(@question.question_content) %></p>
 
     <p class="tags"><%= raw @question.tag_list.map { |tag| link_to tag, tag_path(tag) }.join(' ') %></p>
 
@@ -17,7 +17,7 @@
     <h2>Answers</h2>
 
 
-      <% @question.answers.order(vote: :desc).each do |answer| %>
+      <% @answers.each do |answer| %>
         <div class="answer-block">
           <div class="answer-content row">
             <div class="col-md-2 text-center">
@@ -26,9 +26,18 @@
               <span class="text-danger"><strong><%= answer.vote %></strong></span>
 
               <%= link_to (raw '<span class="glyphicon glyphicon-chevron-down"></span>'), question_answer_path(@question, answer, vote: "down"), method: "patch" %>
+              <br>
+              <% if answer.star %>
+                <span class="glyphicon glyphicon-heart-empty text-warning love" id="answer_<%= answer.id %>"></span>
+              <% end %>
+              <br>
+              <% if current_user && current_user.admin %>
+                <%= link_to 'love', question_answer_path(@question, answer, star: "true"), method: "patch"%>
+              <% end %>
+
             </div>
             <div class="col-md-10">
-              <%= answer.answer_content %>
+              <%= simple_format(answer.answer_content) %>
             </div>
           </div>
           <div class="row">
