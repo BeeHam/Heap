@@ -1,9 +1,12 @@
 <h1 id="header">H E A P</h1>
 
+
 <div class="container">
   <% @sections.each do |section| %>
+  <div class="col-xs-6">
     <div class="sections" id="<%= section.section_name %>">
       <%= link_to section.section_name, section_path(section) %>
     </div>
+  </div>
   <% end %>
 </div>
