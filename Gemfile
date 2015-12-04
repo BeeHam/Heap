@@ -29,6 +29,9 @@ gem 'devise'
 gem 'acts-as-taggable-on'
 gem 'seed_dump'
 gem 'cancancan', '~> 1.10'
+ruby '2.2.2'
+
+gem 'rails_12factor', group: :production
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
